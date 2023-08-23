@@ -26,7 +26,7 @@ const state = {
     //simple third party server to retrieve network details
     iceServers: [
       {
-        urls: "turn:159.203.22.190:5500",
+        urls: "turn:143.110.152.166:5500",
         username: "abdullah",
         credential: "qwerty123",
       },
