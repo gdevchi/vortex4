@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link href="/public/css/conference/layout.css" rel="stylesheet" />
+    <link href="/public/css/switch.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+      integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+      crossorigin="anonymous"
+    ></script>
+    <title>Voice Conference</title>
+  </head>
+  <body>
+    <!--MAIN LAYOUT START-->
+    <div class="main-layout">
+      <img src="/public/IMG_0352.PNG" />
+      <!--HEADING LAYOUT-->
+      <div class="heading">
+        <span class="fa fa-angle-left icon"></span>
+        <span id="room-name">ROOM NAME</span>
+        <div id="profile">
+          <span id="name">Abdullah Khan</span>
+          <span class="fa fa-sign-out icon"></span>
+        </div>
+      </div>
+      <div class="layout">
+        <!--LEFT LAYOUT END-->
+        <div class="left-layout">
+          <!--CONFERENCE LAYOUT START-->
+          <div class="conference-layout">
+            <span id="room-name">ROOM NAME</span>
+            <div class="user-circles">
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <!--CENTER-->
+              <div class="center-circle">
+                <div id="active-user">Abdullah</div>
+                <div id="timer">0</div>
+              </div>
+              <!--CENTER-->
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+          </div>
+          <!--CONFERENCE LAYOUT END-->
+
+          <!--CHAT LAYOUT START-->
+          <div class="chat-layout">
+            <!--Message Container-->
+            <div class="texts"></div>
+            <!--Message Form-->
+            <form>
+              <input type="text" name="message" placeholder="Enter message" />
+              <button type="submit">
+                <span class="fa fa-paper-plane"></span>
+              </button>
+            </form>
+          </div>
+          <!--CHAT LAYOUT END-->
+
+          <!--ACTION LAYOUT START-->
+          <div class="action-layout">
+            <button
+              id="mic-button"
+              class="hide-button action-button"
+              onclick="toggleMic()"
+            >
+              <i class="fas fa-microphone"></i>
+            </button>
+            <button
+              id="pass-button"
+              class="hide-button action-button"
+              onclick="passToNextUser()"
+            >
+              <i class="fas fa-forward"></i>
+            </button>
+            <div id="skip-button">
+              <span>Listen Only</span>
+              <!-- Rounded switch -->
+              <label class="switch">
+                <input type="checkbox" onchange="toggleSwitch(event)" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+          <!--ACTION LAYOUT END-->
+
+          <div class="status-message">
+            <p></p>
+            <span
+              class="fas fa-close"
+              onclick="showMessage({message:''})"
+            ></span>
+          </div>
+        </div>
+        <!--RIGHT LAYOUT END-->
+        <div class="right-layout">
+          <!--CHAT LAYOUT START-->
+          <div class="chat-layout">
+            <!--Message Container-->
+            <div class="texts"></div>
+            <!--Message Form-->
+            <form>
+              <input type="text" name="message" placeholder="Enter message" />
+              <button type="submit">
+                <span class="fa fa-paper-plane"></span>
+              </button>
+            </form>
+          </div>
+        </div>
+        <!--RIGHT LAYOUT END-->
+      </div>
+    </div>
+    <!--MAIN LAYOUT END-->
+    <div class="audio-container"></div>
+  </body>
+  <script>
+    const roomId = "<%=conferenceId%>";
+    const username = "<%=account.firstName%> <%=account.lastName || ''%>";
+  </script>
+  <script src="/public/js/conference/movement.js" defer></script>
+  <script src="/public/js/conference/conference.js" defer></script>
+</html>
