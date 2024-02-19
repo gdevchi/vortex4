@@ -1,0 +1,145 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  font-family: "Poppins";
+}
+html {
+  height: 100%;
+}
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+/*BACKGROUND IMAGE*/
+.main-layout > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 90%;
+  max-width: 400px;
+  height: 80%;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+.container > h2 {
+  text-align: center;
+  margin: 10px;
+  color: white;
+}
+.container > p {
+  text-align: center;
+  font-size: 0.8rem;
+  color: white;
+}
+.border {
+  display: flex;
+}
+.border > .count {
+  color: white;
+  margin-right: 5px;
+  font-size:0.8rem;
+}
+.border > .line {
+  display: flex;
+  flex: 1;
+  height: 2px;
+  margin: auto 0;
+  background-color: #eee;
+}
+.users {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 0;
+}
+.user {
+  display: flex;
+  border-radius: 5px;
+  background-color: white;
+  margin-bottom: 10px;
+  overflow: hidden;
+  font-weight: bold;
+}
+.user > span {
+  display: flex;
+  width: 30px;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  background-color: royalblue;
+}
+.user > span > b {
+  margin: auto;
+}
+.you > span {
+  background-color: yellowgreen;
+}
+.user > div {
+  overflow: hidden;
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 3px solid royalblue;
+}
+.you > div {
+  border-color: yellowgreen;
+}
+.user > div > span {
+  display: block;
+}
+.user > div > span:nth-child(2) {
+  font-size: 0.7rem;
+  color: grey;
+  font-weight: 500;
+}
+
+@media only screen and (min-width: 800px) {
+  /*LAYOUT*/
+  .layout {
+    flex-direction: row;
+  }
+  .heading {
+    justify-content:space-between !important;
+  }
+  .heading > #logo {
+    margin: 0;
+  }
+  .heading > #profile {
+    width: fit-content;
+  }
+}
