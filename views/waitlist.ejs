@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <link href="/public/css/conference/header.css" rel="stylesheet" />
+    <link href="/public/css/conference/waitlist.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+      integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+      crossorigin="anonymous"
+    ></script>
+    <title>Vortex</title>
+  </head>
+  <body class="waitlist-room">
+    <!--MAIN LAYOUT START-->
+    <div class="main-layout">
+      <img src="/public/img/IMG_0352.PNG" />
+      <!--HEADING LAYOUT-->
+      <div class="heading">
+        <a style="text-decoration: none; color: white" href="/conferences"
+          ><span class="fa fa-angle-left icon"></span
+        ></a>
+        <img id="logo" src="/public/img/equal-voice.png" />
+        <div id="profile" onclick="logout()">
+          <span id="name"
+            ><%=account.firstName%> <%=account.lastName || ''%></span
+          >
+          <span class="fa fa-sign-out icon"></span>
+        </div>
+      </div>
+      <div class="layout">
+        <div class="container">
+          <h2><%=room.name%></h2>
+          <p>Room is full please wait for your chance</p>
+          <div class="current-users"></div>
+          <div class="border">
+            <span class="count">Waiting (0)</span>
+            <span class="line"></span>
+          </div>
+          <div class="users"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const roomId = "<%=room.uuid%>";
+    const roomName = "<%=room.name%>";
+    const username = "<%=account.username%>";
+  </script>
+  <script src="/public/js/auth.js"></script>
+  <script src="/public/js/conference/waitlist.js"></script>
+</html>
