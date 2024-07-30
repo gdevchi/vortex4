@@ -1,0 +1,147 @@
+:root {
+  --text-primary: #bf79d6;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body > img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+body {
+  display: flex;
+}
+
+.content {
+  width: 90%;
+  padding: 5%;
+}
+/*Logo Box*/
+.logo-box {
+  width: 100%;
+  margin: 0 auto;
+}
+.logo-box > img {
+  display: block;
+  width: 100%;
+  height: fit-content;
+}
+.logo-box > p {
+  font-size: 1.3rem;
+  font-weight: bolder;
+  font-family: "Poppins";
+  text-align: center;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/*Middle Box*/
+.middle-box {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+.middle-box > .video-box {
+  width: 75%;
+  height: 150px;
+  padding: 5%;
+  margin: auto;
+  background-color: black;
+  border-radius: 10px;
+}
+.middle-box > .video-box > iframe {
+  width: 100%;
+  height: calc(100% - 4px);
+  border: 1px solid white;
+}
+
+.middle-box > .login-box {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+.middle-box > .login-box img {
+  width: 100px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.middle-box > .login-box img:hover {
+  transform: scale(0.8);
+}
+
+.admin-link {
+  display:block;
+  width: fit-content;
+  margin:0 auto 30px auto;
+  font-size:1.2rem;
+}
+.admin-link > a {
+  color: var(--text-primary);
+}
+
+.description {
+  display: block;
+  width: 80%;
+  margin: auto auto 0 auto;
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-family: "Poppins";
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/*Desktop view*/
+@media only screen and (min-width: 800px) {
+  .content {
+    width: 95%;
+    padding: 3% 2.5%;
+  }
+  /*Logo Box*/
+  .logo-box {
+    width: 38%;
+  }
+  .logo-box > p {
+    font-size: 2.15rem;
+  }
+
+  /*Middle Box*/
+  .middle-box {
+    width: 70%;
+    margin: 40px auto;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .middle-box > .video-box {
+    width: 38%;
+    height: 220px;
+    padding: 2.5%;
+    margin: auto 0;
+  }
+  .middle-box > .login-box {
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+  }
+  .middle-box > .login-box img {
+    width: 150px;
+  }
+  
+  .description {
+    width: 60%;
+    font-size: 1.4rem;
+    margin: auto auto 0 auto;
+  }
+}

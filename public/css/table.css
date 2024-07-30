@@ -1,0 +1,77 @@
+.conference-table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-top: 15px;
+}
+.conference-table th {
+  color: white;
+  font-size: 1rem;
+  padding: 5px;
+}
+.conference-table td {
+  text-align: center;
+  padding: 5px 20px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.conf-action > span:nth-child(2) {
+  margin: 0 10px;
+}
+
+.conf-row {
+  cursor: pointer;
+}
+.conf-row > td {
+  background-color: white;
+}
+.conf-row > td:nth-child(1) {
+  border-radius: 5px 0 0 5px;
+}
+.conf-row > td:last-child {
+  border-radius: 0 5px 5px 0;
+}
+.conf-info:hover {
+  opacity: 0.8;
+}
+.conf-info {
+  width: 60%;
+}
+.conf-info > div {
+  padding: 5px 0;
+}
+.conf-info > div > h3 {
+  text-align: left;
+  margin: 0 0 5px 0;
+  color: black;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.conf-info > div > p {
+  text-align: left;
+  margin: 0;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: grey;
+}
+
+@media only screen and (min-width: 900px) {
+  .conference-table {
+    width: 60%;
+  }
+  .conference-table th {
+    font-size: 1.2rem;
+  }
+  .conference-table td {
+    font-size: 1.2rem;
+    padding:10px;
+  }
+  .conf-info > div > h3 {
+    font-size: 1.4rem;
+  }
+  .conf-info > div > p {
+    font-size: 1rem;
+  }
+}

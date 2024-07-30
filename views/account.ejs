@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link href="/public/css/font.css" rel="stylesheet" />
+    <link href="/public/css/form.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Voice Conference | Account</title>
+  </head>
+  <body>
+    <img src="/public/img/bg-2.png" class="bg-image" alt="bg" />
+    <div class="heading">
+      <a style="text-decoration: none; color: white" href="/conferences">
+        <span class="fa fa-angle-left icon"></span>
+        <span>Back</span>
+      </a>
+      <div id="profile" onclick="logout()">
+        <%if(username){%>
+        <span><%=username%></span>
+        <%}%>
+        <span class="fa fa-sign-out icon"></span>
+      </div>
+    </div>
+    <div class="content">
+      <!--LOGO CONTAINER-->
+      <div class="logo-box">
+        <img src="/public/img/logo.png" alt="equal voice" />
+      </div>
+      <!--FORM CONTAINER-->
+      <form class="form">
+        <p>User Profile</p>
+        <p class="address"><%=account.address%></p>
+        <input
+          class="input"
+          name="username"
+          placeholder="Username"
+          value="<%=username%>"
+          required
+        />
+        <input
+          class="input"
+          name="email"
+          placeholder="Email"
+          value="<%=account.email%>"
+        />
+        <textarea
+          class="input"
+          name="description"
+          placeholder="Tell us about yourself"
+        >
+<%=account.description%></textarea
+        >
+        <button>Submit</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    const action = "<%=action%>";
+  </script>
+  <script src="/public/js/auth/account.js"></script>
+  <script src="/public/js/auth/auth.js"></script>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link href="/public/css/font.css" rel="stylesheet" />
+    <link href="/public/css/form.css" rel="stylesheet" />
+    <link href="/public/css/table.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Voice Conference | Account</title>
+  </head>
+  <body>
+    <img src="/public/img/bg-2.png" class="bg-image" alt="bg" />
+    <div class="heading">
+      <!--<a style="text-decoration: none; color: white" href="/conferences">
+        <span class="fa fa-angle-left icon"></span>
+        <span>Back</span>
+      </a>-->
+      <div class="right-nav">
+        <%if(username){%>
+        <a href="/account" id="name">
+          <span><%=username%></span>
+        </a>
+        <%}%>
+        <div id="profile" onclick="logout()">
+          <span style="margin: auto 5px auto 0;">Logout</span>
+          <span class="fa fa-sign-out icon"></span>
+        </div>
+      </div>
+      <!--<div id="profile" onclick="logout()">
+        <%if(username){%>
+        <span><%=username%></span>
+        <%}%>
+        <span class="fa fa-sign-out icon"></span>
+      </div>-->
+    </div>
+    <div class="content">
+      <!--LOGO CONTAINER-->
+      <div class="logo-box">
+        <img src="/public/img/logo.png" alt="equal voice" />
+      </div>
+      <!--TABLE CONTAINER-->
+      <table class="conference-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Occupany</th>
+            <th>Waiting</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class="rooms">
+          
+         
+        </tbody>
+      </table>
+    </div>
+  </body>
+  <script src="/public/js/auth/auth.js"></script>
+  <script>
+    const roomsContainer = document.querySelector(".rooms");
+    function logout() {
+      fetch("/api/v1/auth/logout", {
+        method: "GET",
+      })
+        .then(() => (window.location.href = "/"))
+        .catch(() => alert("Logout failed!"));
+    }
+
+    function goto(uuid) {
+        console.log(uuid);
+        window.location.href = `/conferences/${uuid}`;
+    }
+
+    async function fetchRooms() {
+      fetch("/api/v1/rooms", {
+        method: "GET",
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          roomsContainer.innerHTML = res.data.rooms
+            .map((room) => {
+              return `<tr class="conf-row" onclick='goto("${room.uuid}")'>
+            <td class="conf-info">
+              <div>
+                <h3>${room.name}</h3>
+                <p>${room.description || '-no descrition-'}</p>
+              </div>
+            </td>
+            <td>${room.user.joined}/12</td>
+            <td>${room.user.waitlisted}</td>
+          </tr><br/>`;
+            })
+            .join("");
+        })
+        .catch((err) => alert(err.message));
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      await fetchRooms();
+    });
+  </script>
+</html>

@@ -1,0 +1,71 @@
+/*HEADING LAYOUT*/
+.heading {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  padding: 3% 5%;
+  border-bottom: 1px solid #eee;
+}
+.heading > .icon {
+  font-size: 1.5rem;
+  color: white;
+}
+.heading > #logo {
+  width: 150px;
+}
+.heading > #room-name {
+  display: none;
+}
+.heading > .right-nav {
+  display: flex;
+}
+.heading a {
+  text-decoration: none;
+  color: white;
+  margin: auto 10px auto 0;
+}
+.heading #name {
+  display: block;
+  margin: auto 20px auto auto;
+  text-decoration: none;
+}
+.heading #profile {
+  width: fit-content;
+  user-select: none;
+  display: flex;
+  font-size: 1rem;
+  color: white;
+  transition: all 0.3s;
+}
+.heading #profile:hover {
+  text-decoration: underline;
+  color: orangered !important;
+}
+.heading #profile > .icon {
+  margin: auto 0;
+}
+
+@media only screen and (min-width: 800px) {
+  /*HEADING LAYOUT*/
+  .heading {
+    justify-content: start !important;
+    width: calc(100% - 60px);
+    padding: 15px 30px;
+  }
+  .heading > #logo {
+    width: 150px;
+    margin: auto;
+  }
+  .heading > #room-name {
+    display: block;
+    width: fit-content;
+    margin: 0 0 0 0px;
+  }
+  .heading > .profile {
+    margin: 0;
+  }
+  .heading > #profile {
+    width: 400px;
+    justify-content: end;
+  }
+}
