@@ -39,7 +39,7 @@ const state = {
       },
       {
         urls: "turn:143.110.152.166:5500",
-        username: "abdullah",
+        username: "equalvoice",
         credential: "qwerty123",
       },
     ],
@@ -694,3 +694,4 @@ socket.on("waitlist:rejoin", (payload) => {
 window.addEventListener("DOMContentLoaded", () => {
   getAudioStreamAccess();
 });
+
